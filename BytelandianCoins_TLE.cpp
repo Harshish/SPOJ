@@ -1,27 +1,27 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-long maxCoins(long long n)
+long long getValue(long long n)
 {
-	if(n<=4)
+	if(n==0)
+		return 0;
+	if(n==1 || n==2 || n==3 || n==4 || n==5 || n==6 
+		|| n==7 || n==8 || n==9 || n==10 || n==11 
+		|| n==13 || n==14 || n==15 || n==17 || n==19
+		|| n==23)
 		return n;
-	long long k = maxCoins(n/2) + maxCoins (n/3) + maxCoins(n/4);
-	if(k > n)
-		return k;
+	long long a = getValue(n/2) + getValue(n/3) + getValue(n/4);
+	if(a < n)
+		return n;
 	else
-		return n;
+		return a;
 }
 
 int main()
 {
-	short int tc;
-	cin >> tc;
-	while(tc--)
-	{
-		long long n;
-		cin >> n;
-		cout << maxCoins(n) << "\n";
-	}
-   	return 0;
+	long long n;
+	while(scanf("%lld", &n) != EOF)
+		cout << getValue(n) << "\n";
+	return 0;
 }
