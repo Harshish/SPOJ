@@ -58,7 +58,6 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int tc = 10,n,m,k;
-    ;
     string s;
     for(int t = 1; t <= tc; t++){
         cin >> n;
